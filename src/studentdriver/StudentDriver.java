@@ -61,6 +61,7 @@ public class StudentDriver {
             if (file.hasNext()) {
                 String[] grad = file.next().split(",");
                 if (Boolean.parseBoolean(grad[4]) == true) {
+                    students[x] = new GraduateStudent(grad[1], Integer.parseInt(grad[0]), Boolean.parseBoolean(grad[2]), 
 
                 } else {
 
