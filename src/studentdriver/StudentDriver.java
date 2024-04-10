@@ -33,15 +33,15 @@ public class StudentDriver {
         Scanner input = new Scanner(System.in);
 
         //Undergraduate Students
-        System.out.println("Enter number of Undergraduate Students: ");
+        System.out.print("Enter number of Undergraduate Students: ");
         int UGCount = input.nextInt();
 
         //Grad Students
-        System.out.println("Enter number of Graduate Students: ");
+        System.out.print("Enter number of Graduate Students: ");
         int GradCount = input.nextInt();
 
         //Online Students
-        System.out.println("Enter number of online Students: ");
+        System.out.print("Enter number of online Students: ");
         int OnlineCount = input.nextInt();
 
         //Undergrad for loop
