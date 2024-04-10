@@ -50,8 +50,8 @@ public class StudentDriver {
             if (file.hasNext()) {
                 String[] undergrad = file.next().split(",");
                 students[x] = new UGStudent(undergrad[1], Integer.parseInt(undergrad[0]),
-                        Boolean.parseBoolean(undergrad[2]), Double.parseDouble(undergrad[5]), Integer.parseInt(undergrad[3]),
-                        Boolean.parseBoolean(undergrad[4]));
+                        Boolean.parseBoolean(undergrad[2]), Double.parseDouble(undergrad[5]),
+                        Integer.parseInt(undergrad[3]), Boolean.parseBoolean(undergrad[4]));
                 x++;
             }
         }
@@ -61,15 +61,25 @@ public class StudentDriver {
             if (file.hasNext()) {
                 String[] grad = file.next().split(",");
                 if (Boolean.parseBoolean(grad[4]) == true) {
-                    students[x] = new GraduateStudent(grad[1], Integer.parseInt(grad[0]), Boolean.parseBoolean(grad[2]), 
-
+                    students[x] = new GraduateStudent(grad[1], Integer.parseInt(grad[0]),
+                            Boolean.parseBoolean(grad[2]), Boolean.parseBoolean(grad[4]),
+                            grad[5], Integer.parseInt(grad[3]));
                 } else {
-
+                    students[x] = new GraduateStudent(grad[1], Integer.parseInt(grad[0]),
+                            Boolean.parseBoolean(grad[2]), Boolean.parseBoolean(grad[4]), Integer.parseInt(grad[3]));
                 }
                 x++;
             }
         }
 
         //Online for loop
+        for (int i = 0; i < OnlineCount; i++) {
+            if (file.hasNext()) {
+                String[] online = file.next().split(",");
+                students[x] = new OnlineStudent(online[1], Integer.parseInt(online[0]),
+                        Boolean.parseBoolean(online[2]), Integer.parseInt(online[3]));
+                x++;
+            }
+        }
     }
 }
