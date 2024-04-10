@@ -5,6 +5,9 @@
  */
 package studentdriver;
 
+import java.io.*;
+import java.util.*;
+
 /**
  *
  * @author dianar
@@ -14,8 +17,58 @@ public class StudentDriver {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
         System.out.println("Project02");
-    }
 
+        //Array
+        StudentFees[] students = new StudentFees[12];
+
+        //Open file
+        File inputFile = new File("input.csv");
+
+        //Read from file
+        Scanner file = new Scanner(new File("input.csv"));
+
+        //User input
+        Scanner input = new Scanner(System.in);
+
+        //Undergraduate Students
+        System.out.println("Enter number of Undergraduate Students: ");
+        int UGCount = input.nextInt();
+
+        //Grad Students
+        System.out.println("Enter number of Graduate Students: ");
+        int GradCount = input.nextInt();
+
+        //Online Students
+        System.out.println("Enter number of online Students: ");
+        int OnlineCount = input.nextInt();
+
+        //Undergrad for loop
+        int x = 0;
+        for (int i = 0; i < UGCount; i++) {
+            if (file.hasNext()) {
+                String[] undergrad = file.next().split(",");
+                students[x] = new UGStudent(undergrad[1], Integer.parseInt(undergrad[0]),
+                        Boolean.parseBoolean(undergrad[2]), Double.parseDouble(undergrad[5]), Integer.parseInt(undergrad[3]),
+                        Boolean.parseBoolean(undergrad[4]));
+                x++;
+            }
+        }
+
+        //Grad for loop
+        for (int i = 0; i < GradCount; i++) {
+            if (file.hasNext()) {
+                String[] grad = file.next().split(",");
+                if (Boolean.parseBoolean(grad[4]) == true) {
+
+                } else {
+
+                }
+                x++;
+            }
+        }
+
+        //Online for loop
+    }
 }
