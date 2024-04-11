@@ -45,7 +45,14 @@ public class GraduateStudent extends StudentFees {
 
     @Override
     public double getPayableAmount() {
-        return coursesEnrolled * super.getPayableAmount();
+        switch (graduateAssistantType) {
+            case "full":
+                return ADDITIONAL_FEES;
+            case "half":
+                return (coursesEnrolled * (super.getPayableAmount() / 2)) + ADDITIONAL_FEES;
+            default:
+                return (coursesEnrolled * super.getPayableAmount()) + ADDITIONAL_FEES;
+        }
     }
 
     //toString

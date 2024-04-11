@@ -36,9 +36,18 @@ public class UGStudent extends StudentFees {
         return coursesEnrolled;
     }
 
+    @Override
+    public double getPayableAmount() {
+        if (isIsEnrolled() == true) {
+            return (super.getPayableAmount() * coursesEnrolled) + ADDITIONAL_FEE - scholarshipAmount;
+        } else {
+            return 0.00;
+        }
+    }
+
     //toString
     @Override
     public String toString() {
-        return "\n" + super.toString() + "\nScholarship: " + hasScholarship + "\nScholarship Amount: " + scholarshipAmount + "\nCourses enrolled: " + coursesEnrolled + "\nPayable Amount: " + super.getPayableAmount(); //Don't think that's how the payable amount is supposed to go, but I'm trying
+        return "\n" + super.toString() + "\nScholarship: " + hasScholarship + "\nScholarship Amount: " + scholarshipAmount + "\nCourses enrolled: " + coursesEnrolled + "\nPayable Amount: " + getPayableAmount(); //Don't think that's how the payable amount is supposed to go, but I'm trying
     }
 }
