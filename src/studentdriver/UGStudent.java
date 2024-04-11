@@ -16,7 +16,7 @@ public class UGStudent extends StudentFees {
     private final double ADDITIONAL_FEE = 820.70;
 
     //constuctor
-    public UGStudent(String studentName, int studentID, boolean isEnrolled, double ScholarshipAmount, int coursesEnrolled, boolean hasScholarship) {
+    public UGStudent(String studentName, int studentID, boolean isEnrolled, double scholarshipAmount, int coursesEnrolled, boolean hasScholarship) {
         super(studentName, studentID, isEnrolled);
         this.scholarshipAmount = scholarshipAmount;
         this.coursesEnrolled = coursesEnrolled;
@@ -39,6 +39,6 @@ public class UGStudent extends StudentFees {
     //toString
     @Override
     public String toString() {
-        return super.toString() + "\nScholarship: " + hasScholarship + "\nScholarship Amount: " + scholarshipAmount + "\nCourses enrolled: " + coursesEnrolled + "Payable Amount: " + super.getPayableAmount(); //Don't think that's how the payable amount is supposed to go, but I'm trying
+        return "\n" + super.toString() + "\nScholarship: " + hasScholarship + "\nScholarship Amount: " + scholarshipAmount + "\nCourses enrolled: " + coursesEnrolled + "\nPayable Amount: " + super.getPayableAmount(); //Don't think that's how the payable amount is supposed to go, but I'm trying
     }
 }

@@ -81,5 +81,12 @@ public class StudentDriver {
                 x++;
             }
         }
+        file.close();
+
+        //loop to display Array information
+        for (int i = 0; i < students.length; i++) {
+            System.out.println(students[i]);
+        }
+
     }
 }

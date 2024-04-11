@@ -51,7 +51,7 @@ public class GraduateStudent extends StudentFees {
     //toString
     @Override
     public String toString() {
-        return super.toString() + "\nGraduate assistant: " + isGraduateAssistant + "\nGraduate assistant type: " + graduateAssistantType + "\nCourses enrolled: " + coursesEnrolled + "Payable amount: " + getPayableAmount();
+        return "\n" + super.toString() + "\nGraduate assistant: " + isGraduateAssistant + "\nGraduate assistant type: " + graduateAssistantType + "\nCourses enrolled: " + coursesEnrolled + "\nPayable amount: " + getPayableAmount();
     }
 
     //>>>>>>> 158578dbad56d314a4fc511809c3272ff942a2d5            <- I don't know what this is so I won't delete it. -Addison
