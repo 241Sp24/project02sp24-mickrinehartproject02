@@ -17,7 +17,7 @@ public class GraduateStudent extends StudentFees {
     private int coursesEnrolled;
     private boolean isGraduateAssistant;
     private String graduateAssistantType;
-    private final double ADDITIONAL_FEES = 645.45;
+    private final double ADDITIONAL_FEES = 654.45;
 
     //Constructors
     public GraduateStudent(String studentName, int studentID, boolean isEnrolled, boolean isGraduateAssistant, String graduateAssistantType, int coursesEnrolled) {
@@ -49,7 +49,7 @@ public class GraduateStudent extends StudentFees {
             case "full":
                 return ADDITIONAL_FEES;
             case "half":
-                return (coursesEnrolled * (super.getPayableAmount() / 2)) + ADDITIONAL_FEES;
+                return ((coursesEnrolled * super.getPayableAmount()) / 2 + ADDITIONAL_FEES);
             default:
                 return (coursesEnrolled * super.getPayableAmount()) + ADDITIONAL_FEES;
         }
@@ -58,7 +58,7 @@ public class GraduateStudent extends StudentFees {
     //toString
     @Override
     public String toString() {
-        return "\n" + super.toString() + "\nGraduate assistant: " + isGraduateAssistant + "\nGraduate assistant type: " + graduateAssistantType + "\nCourses enrolled: " + coursesEnrolled + "\nPayable amount: " + getPayableAmount();
+        return "\n" + super.toString() + "\nGraduate assistant: " + isGraduateAssistant + "\nGraduate assistant type: " + graduateAssistantType + "\nCourses enrolled: " + coursesEnrolled + "\nPayable amount: " + String.format("%.2f \n", getPayableAmount());
     }
 
     //>>>>>>> 158578dbad56d314a4fc511809c3272ff942a2d5            <- I don't know what this is so I won't delete it. -Addison

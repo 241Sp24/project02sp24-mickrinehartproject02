@@ -20,7 +20,7 @@ public class OnlineStudent extends StudentFees {
     //toString
     @Override
     public String toString() {
-        return "\n" + super.toString() + "\nNo of months: " + noOfMonths + "\nPayable amount: " + getPayableAmount();
+        return "\n" + super.toString() + "\nNo of months: " + noOfMonths + "\nPayable amount: " + String.format("%.2f \n", getPayableAmount());
     }
 
 }

@@ -48,6 +48,6 @@ public class UGStudent extends StudentFees {
     //toString
     @Override
     public String toString() {
-        return "\n" + super.toString() + "\nScholarship: " + hasScholarship + "\nScholarship Amount: " + scholarshipAmount + "\nCourses enrolled: " + coursesEnrolled + "\nPayable Amount: " + getPayableAmount(); //Don't think that's how the payable amount is supposed to go, but I'm trying
+        return "\n" + super.toString() + "\nScholarship: " + hasScholarship + "\nScholarship Amount: " + scholarshipAmount + "\nCourses enrolled: " + coursesEnrolled + "\nPayable Amount: " + String.format("%.2f \n", getPayableAmount()); //Don't think that's how the payable amount is supposed to go, but I'm trying
     }
 }
