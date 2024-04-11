@@ -81,12 +81,21 @@ public class StudentDriver {
                 x++;
             }
         }
+        //Close input file
         file.close();
 
         //loop to display Array information
         for (int i = 0; i < students.length; i++) {
+            if (i == 0) {
+                System.out.println("\nUndergraduate Students List");
+            } else if (i == UGCount) {
+                System.out.println("Graduate Students List");
+            } else if (i == UGCount + GradCount) {
+                System.out.println("Online Students List");
+            }
             System.out.println(students[i]);
         }
 
+        //Undergraduate Details
     }
 }
