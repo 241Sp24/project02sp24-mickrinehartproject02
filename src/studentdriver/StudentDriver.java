@@ -84,18 +84,69 @@ public class StudentDriver {
         //Close input file
         file.close();
 
+        //variables
+        double avgUGFee = 0;
+        double ugNotEnrolled = 0;
+        int ugScholarshipCount = 0;
+        int ugCreditHours = 0;
+
+        double avgGradFee = 0;
+        double gradEnrolled = 0;
+        int gradAssistanceCount = 0;
+        int gradCreditHours = 0;
+
+        double avgOnlineFee = 0;
+        double onlineEnrolled = 0;
+
         //loop to display Array information
         for (int i = 0; i < students.length; i++) {
             if (i == 0) {
-                System.out.println("\nUndergraduate Students List");
+                System.out.println("\n*********Undergraduate Students List*********");
             } else if (i == UGCount) {
-                System.out.println("Graduate Students List");
+                System.out.println("*********Graduate Students List*********");
             } else if (i == UGCount + GradCount) {
-                System.out.println("Online Students List");
+                System.out.println("*********Online Students List*********");
             }
             System.out.println(students[i]);
-        }
 
-        //Undergraduate Details
+            //Undergraduate Details
+            if (students[i] instanceof UGStudent) {
+                if (students[i].isIsEnrolled() == true) {
+                    ugNotEnrolled += 1;
+                    ugCreditHours += ((UGStudent) students[i]).getCoursesEnrolled();
+                }
+                if (((UGStudent) students[i]).isHasScholarship() == true) {
+                    ugScholarshipCount += 1;
+                }
+                avgUGFee += students[i].getPayableAmount();
+            }
+
+            //Graduate Details
+            if (students[i] instanceof GraduateStudent) {
+                if (students[i].isIsEnrolled() == true) {
+                    gradEnrolled += 1;
+                    gradCreditHours += ((GraduateStudent) students[i]).getCoursesEnrolled();
+                }
+                if (((GraduateStudent) students[i]).isIsGraduateAssistant() == true) {
+                    gradAssistanceCount += 1;
+                }
+                avgGradFee += students[i].getPayableAmount();
+            }
+
+            //Online Details
+            if (students[i] instanceof OnlineStudent) {
+                if (students[i].isIsEnrolled() == true) {
+                    onlineEnrolled += 1;
+                }
+                avgOnlineFee += students[i].getPayableAmount();
+            }
+
+        }
+        System.out.println("*********Undergraduate Students Details*********" + "\nAverage Students Fee: " + avgUGFee / ugNotEnrolled + "\nScholarship Count: " + ugScholarshipCount + "\nTotal Number of Courses: " + ugCreditHours);
+
+        System.out.println("\n*********Graduate Students Details*********" + "\nAverage Students Fee: " + avgGradFee / gradEnrolled + "\nGraduate Assistanceship Count: " + gradAssistanceCount + "\nTotal Number of Courses: " + gradCreditHours);
+
+        System.out.printf("\n**********Online Students Details**********" + "\nAverage Students Fee: %.2f\n", (avgOnlineFee / onlineEnrolled));
+
     }
 }
